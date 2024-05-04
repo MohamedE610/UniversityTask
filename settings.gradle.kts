@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "UniversityTask"
 include(":app")
+include(":core")

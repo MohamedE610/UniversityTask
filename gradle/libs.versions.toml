@@ -46,5 +46,6 @@ facebook-shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shi
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 orgJetbrainsKotlinkapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 
 
