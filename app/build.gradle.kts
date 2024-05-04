@@ -53,42 +53,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    //mockito
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.inline)
-
-    //coroutines
-    implementation(libs.kotlinx.coroutines.android)
-
-    //viewModel
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
-    //retrofit2
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson.converter)
-    implementation(libs.okhttp3.logging.interceptor)
-
-    //chucker
-    debugImplementation(libs.chucker.library)
-    releaseImplementation(libs.chucker.library.no.op)
-
-    //fragmentKTX
-    implementation(libs.androidx.fragment.ktx)
-
-    //glide
-    implementation(libs.glide)
-
-    //facebook shimmer
-    implementation(libs.facebook.shimmer)
-
 }
