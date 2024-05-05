@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.university.core.extension.gone
 import com.university.core.extension.show
 import com.university.core.extension.viewBinding
-import com.university.entity.University
+import com.university.core.entity.University
 import com.university.listing.databinding.ItemUniversityBinding
 
 class UniversityAdapter(

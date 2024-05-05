@@ -54,7 +54,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":entity"))
     implementation(project(":features:listing"))
 
     testImplementation(libs.junit)

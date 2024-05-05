@@ -1,6 +1,6 @@
 package com.university.listing.domain
 
-import com.university.entity.University
+import com.university.core.entity.University
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

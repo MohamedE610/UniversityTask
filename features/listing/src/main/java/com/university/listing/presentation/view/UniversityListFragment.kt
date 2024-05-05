@@ -14,7 +14,7 @@ import com.university.core.extension.observe
 import com.university.core.extension.show
 import com.university.core.extension.showErrorSnackBar
 import com.university.core.extension.viewBinding
-import com.university.entity.University
+import com.university.core.entity.University
 import com.university.listing.R
 import com.university.listing.databinding.FragmentUniversityListBinding
 import com.university.listing.presentation.viewmodel.UniversityListState

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.university.core.exception.AppException
 import com.university.core.exception.toAppException
-import com.university.entity.University
+import com.university.core.entity.University
 import com.university.listing.domain.GetUniversityListUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

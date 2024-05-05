@@ -1,7 +1,7 @@
 package com.university.listing.data
 
 import com.university.core.datasource.local.room.entity.UniversityEntity
-import com.university.entity.University
+import com.university.core.entity.University
 
 
 fun UniversityData.toDomain(): University {

@@ -3,10 +3,9 @@ package com.university.listing.data
 import com.university.core.datasource.local.room.dao.UniversityDao
 import com.university.core.di.qualifier.Dispatcher
 import com.university.core.di.qualifier.DispatcherKey
-import com.university.core.di.scope.ActivityScope
 import com.university.core.di.scope.FragmentScope
 import com.university.core.extension.emitFlow
-import com.university.entity.University
+import com.university.core.entity.University
 import com.university.listing.domain.UniversityRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
