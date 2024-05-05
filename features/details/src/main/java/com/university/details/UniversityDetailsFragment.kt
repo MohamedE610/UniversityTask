@@ -57,6 +57,7 @@ class UniversityDetailsFragment(
             Constant.REFRESH_LISTING,
             bundleOf()
         )
+        activity?.onBackPressedDispatcher?.onBackPressed()
     }
 
     private fun getUniversityFromBundle(arguments: Bundle?): University? {
