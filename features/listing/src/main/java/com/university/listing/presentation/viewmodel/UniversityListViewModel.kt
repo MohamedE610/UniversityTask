@@ -27,7 +27,7 @@ class UniversityListViewModel @Inject constructor(
         getUniversityList()
     }
 
-    private fun getUniversityList() {
+    fun getUniversityList() {
         _screenState.value = UniversityListState.Loading
         getUniversityListUseCase()
             .onEach { _screenState.value = UniversityListState.Success(it) }
