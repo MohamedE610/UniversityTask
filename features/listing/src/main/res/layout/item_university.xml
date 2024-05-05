@@ -16,7 +16,7 @@
         android:textAlignment="viewStart"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/im_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/img_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="UniversityName" />
@@ -35,7 +35,7 @@
         tools:text="UniversityName" />
 
     <ImageView
-        android:id="@+id/im_arrow"
+        android:id="@+id/img_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
