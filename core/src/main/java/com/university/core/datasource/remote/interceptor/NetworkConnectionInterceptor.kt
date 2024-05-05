@@ -1,6 +1,6 @@
-package com.university.core.datasource.remote.retrofit
+package com.university.core.datasource.remote.interceptor
 
-import com.university.core.application.App
+import com.university.core.application.BaseApp
 import com.university.core.extension.isInternetAvailable
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -21,7 +21,7 @@ class NetworkConnectionInterceptor : Interceptor {
 
     private val isConnected: Boolean
         get() {
-            return App.instance.isInternetAvailable()
+            return BaseApp.instance.isInternetAvailable()
         }
 
 }

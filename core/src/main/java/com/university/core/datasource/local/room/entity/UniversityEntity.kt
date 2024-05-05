@@ -11,7 +11,7 @@ import com.university.core.datasource.local.room.converters.DBConverters
 data class UniversityEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: String,
+    val id: Int,
     @ColumnInfo(name = "alphaTwoCode")
     val alphaTwoCode: String,
     @ColumnInfo(name = "name")

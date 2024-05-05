@@ -2,7 +2,7 @@ package com.university.core.exception
 
 import android.content.Context
 import com.university.core.R
-import com.university.core.datasource.remote.retrofit.NoConnectivityException
+import com.university.core.datasource.remote.interceptor.NoConnectivityException
 import retrofit2.HttpException
 
 sealed class AppException : Throwable() {
