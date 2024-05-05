@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.orgJetbrainsKotlinkapt)
 }
 
 android {
@@ -15,7 +16,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://universities.hipolabs.com/\"")
+        }
+
         release {
+            buildConfigField("String", "BASE_URL", "\"http://universities.hipolabs.com/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -30,14 +36,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    configurations {
-        create("coreTestImplementation") {
-            extendsFrom(configurations["testImplementation"])
-        }
-        create("coreAndroidTestImplementation") {
-            extendsFrom(configurations["androidTestImplementation"])
-        }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -75,9 +75,11 @@ dependencies {
     //fragmentKTX
     api(libs.androidx.fragment.ktx)
 
-    //glide
-    api(libs.glide)
-
     //facebook shimmer
     api(libs.facebook.shimmer)
+
+    //room
+    api(libs.room.runtime)
+    kapt(libs.room.compiler)
+    api(libs.room.ktx)
 }
