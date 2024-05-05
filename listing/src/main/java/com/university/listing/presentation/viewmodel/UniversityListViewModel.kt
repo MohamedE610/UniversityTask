@@ -1,6 +1,5 @@
 package com.university.listing.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.university.core.exception.AppException
@@ -28,11 +27,10 @@ class UniversityListViewModel @Inject constructor(
         getUniversityList()
     }
 
-    fun getUniversityList() {
+    private fun getUniversityList() {
         _screenState.value = UniversityListState.Loading
         getUniversityListUseCase()
             .onEach { _screenState.value = UniversityListState.Success(it) }
-            .onEach { Log.d("asdasd", "list size: ${it.size}") }
             .catch { _screenState.value = UniversityListState.Error(it.toAppException()) }
             .launchIn(viewModelScope)
     }

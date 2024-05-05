@@ -2,19 +2,30 @@ package com.university.listing.presentation.view
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.university.core.exception.AppException
+import com.university.core.exception.getMessageShouldDisplay
+import com.university.core.extension.gone
 import com.university.core.extension.observe
+import com.university.core.extension.show
+import com.university.core.extension.showErrorSnackBar
+import com.university.core.extension.viewBinding
+import com.university.entity.University
 import com.university.listing.R
+import com.university.listing.databinding.FragmentUniversityListBinding
 import com.university.listing.presentation.viewmodel.UniversityListState
 import com.university.listing.presentation.viewmodel.UniversityListViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class UniversityListFragment : Fragment() {
+class UniversityListFragment : Fragment(R.layout.fragment_university_list) {
+
+    private val binding by viewBinding(FragmentUniversityListBinding::bind)
+    private val universityAdapter: UniversityAdapter by lazy { UniversityAdapter(::onItemClicked) }
 
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProvider.Factory
@@ -28,26 +39,48 @@ class UniversityListFragment : Fragment() {
         super.onAttach(context)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_university_list, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         observe(viewModel.screenState, ::onScreenStateChanged)
     }
 
-    private fun onScreenStateChanged(state: UniversityListState) {
-
+    private fun initViews() {
+        with(binding.rvUniversities) {
+            layoutManager =
+                LinearLayoutManager(context ?: return, LinearLayoutManager.VERTICAL, false)
+            adapter = universityAdapter
+        }
     }
 
-    private fun initViews() {
+    private fun onItemClicked(university: University) {
+        Toast.makeText(requireContext(), university.name, Toast.LENGTH_SHORT).show()
+    }
 
+    private fun onScreenStateChanged(state: UniversityListState) {
+        when (state) {
+            is UniversityListState.Loading -> showSkeleton()
+            is UniversityListState.Success -> handleSuccessState(state.data)
+            is UniversityListState.Error -> handleErrorState(state.e)
+            is UniversityListState.Initial -> Unit
+        }
+    }
+
+    private fun handleErrorState(e: AppException) {
+        binding.root.showErrorSnackBar(errorMessage = e.getMessageShouldDisplay(context ?: return))
+    }
+
+    private fun handleSuccessState(data: List<University>) {
+        hideSkeleton()
+        universityAdapter.setItems(data)
+    }
+
+    private fun showSkeleton() {
+        binding.skView.root.show()
+    }
+
+    private fun hideSkeleton() {
+        binding.skView.root.gone()
     }
 
 }
