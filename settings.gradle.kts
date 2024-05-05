@@ -23,4 +23,5 @@ rootProject.name = "UniversityTask"
 include(":app")
 include(":core")
 include(":entity")
-include(":listing")
+include(":features:listing")
+include(":features:details")
