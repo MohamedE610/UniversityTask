@@ -55,6 +55,7 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":entity"))
+    implementation(project(":listing"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
