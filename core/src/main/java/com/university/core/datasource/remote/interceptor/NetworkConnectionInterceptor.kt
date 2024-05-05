@@ -21,7 +21,7 @@ class NetworkConnectionInterceptor : Interceptor {
 
     private val isConnected: Boolean
         get() {
-            return BaseApp.instance.isInternetAvailable()
+            return BaseApp.instance?.isInternetAvailable() ?: false
         }
 
 }

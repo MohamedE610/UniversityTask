@@ -1,8 +1,8 @@
 package com.university.core.application
 
-import android.app.Application
+import dagger.android.DaggerApplication
 
-open class BaseApp : Application() {
+abstract class BaseApp : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
@@ -10,7 +10,7 @@ open class BaseApp : Application() {
     }
 
     companion object {
-        lateinit var instance: BaseApp
+        var instance: BaseApp? = null
             private set
     }
 }

@@ -13,12 +13,6 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun providesApplication(application: Application): Application {
-        return application
-    }
-
-    @Provides
-    @Singleton
     @ContextQualifier(ContextKey.APP)
     fun providesApplicationContext(application: Application): Context {
         return application.applicationContext
