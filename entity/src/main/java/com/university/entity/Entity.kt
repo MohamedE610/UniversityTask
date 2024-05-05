@@ -6,5 +6,5 @@ data class University(
     val country: String,
     val domains: List<String>,
     val webPages: List<String>,
-    val stateProvince: String
+    val stateProvince: String?
 )
