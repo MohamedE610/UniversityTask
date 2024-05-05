@@ -1,4 +1,4 @@
-**# Architecture
+# Architecture
 
 Clean Architecture with MVVM pattern in the presentation layer
 
