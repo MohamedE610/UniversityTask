@@ -82,4 +82,11 @@ dependencies {
     api(libs.room.runtime)
     kapt(libs.room.compiler)
     api(libs.room.ktx)
+
+    //dagger2
+    api(libs.dagger)
+    api(libs.dagger.android)
+    kapt(libs.dagger.compiler)
+    kapt(libs.dagger.android.processor)
+
 }

@@ -1,5 +1,9 @@
 [versions]
 agp = "8.3.2"
+dagger = "2.48"
+daggerAndroid = "2.40"
+daggerAndroidProcessor = "2.20"
+daggerCompiler = "2.46.1"
 fragmentKtx = "1.7.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -25,6 +29,10 @@ jetbrainsKotlinJvm = "1.9.0"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-android = { module = "com.google.dagger:dagger-android", version.ref = "daggerAndroid" }
+dagger-android-processor = { module = "com.google.dagger:dagger-android-processor", version.ref = "daggerAndroidProcessor" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
