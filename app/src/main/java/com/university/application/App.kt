@@ -1,26 +1,16 @@
 package com.university.application
 
 import com.university.core.application.BaseApp
-import com.university.di.component.AppComponent
 import com.university.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import javax.inject.Inject
+import dagger.android.DaggerApplication
 
-class App : BaseApp(), HasAndroidInjector {
+class App : BaseApp() {
 
-    @Inject
-    lateinit var androidInjector: DispatchingAndroidInjector<Any>
-
-    override fun androidInjector(): AndroidInjector<Any> = androidInjector
-
-    var appComponent: AppComponent? = null
-        private set
-
-    override fun onCreate() {
-        super.onCreate()
-        appComponent = DaggerAppComponent.builder().application(this).build()
-        appComponent?.inject(this)
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder()
+            .application(this)
+            .build()
+            .also { it.inject(this) }
     }
 }
