@@ -11,7 +11,7 @@ import com.university.listing.presentation.view.UniversityListFragment
 
 
 fun AppCompatActivity.navigateTo(appScreen: AppScreen) {
-    supportFragmentManager.navigateTo(appScreen, ::navigateTo)
+   supportFragmentManager.navigateTo(appScreen, ::navigateTo)
 }
 
 fun Fragment.navigateTo(appScreen: AppScreen) {

@@ -18,6 +18,7 @@ import com.university.core.extension.showErrorSnackBar
 import com.university.core.extension.viewBinding
 import com.university.core.entity.University
 import com.university.core.navigation.AppScreen
+import com.university.core.navigation.Navigator
 import com.university.listing.R
 import com.university.listing.databinding.FragmentUniversityListBinding
 import com.university.listing.presentation.viewmodel.UniversityListState
@@ -34,6 +35,9 @@ class UniversityListFragment(
 
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var navigator: Navigator
 
     private val viewModel: UniversityListViewModel by lazy {
         ViewModelProvider(this, viewModelProviderFactory)[UniversityListViewModel::class.java]
@@ -67,7 +71,7 @@ class UniversityListFragment(
     }
 
     private fun onItemClicked(university: University) {
-        navigateTo(AppScreen.Details(university))
+        navigator.navigateTo(AppScreen.Details(university))
     }
 
     private fun onScreenStateChanged(state: UniversityListState) {
